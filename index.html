@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Week 2 - API PROJECT</p>
+
+  <script>
+    
+  </script>
+
+  <p id="question">
+    Using the json file ghibli.json prepare REST API.
+    The API should support the following methods:
+    GET /getAll - get all records
+    GET /getByYear - get all movies from given year
+    GET /getByTitle - get all movies by title
+    GET /search - return all movies matching part of title or description
+    POST /addMovie - add movie at the end of JSON file
+    POST /deleteMovie - remove movie from JSON file
+    POST /editMovie - modify movie in JSON file
+
+    To modify JSON file please use module: https://www.npmjs.com/package/jsonfile
+    Please create repository on GitHub called ghibliMovies and commit often!
+  </p>
+
+  <div id="dataField">
+    <table border="1" cellpadding="7" cellspacing="7">
+      <tr>
+        <th width="50px">ID</th>
+        <th>Title</th>
+        <th>Director</th>
+        <th>Producer</th>
+        <th>Release Date</th>
+      </tr>
+      <% if(obj.length){
+        for(let i=0; i<obj.length; i++){%>
+          <tr>
+            <td><%=(i+1)%></td>
+            <td><%=obj[i].title%></td>
+            <td><%=obj[i].director%></td>
+            <td><%=obj[i].producer%></td>
+            <td><%=obj[i].release_date%></td>
+          </tr>
+          <% }
+        }else{ %>
+        <tr>
+          <td colspan="3">No user</td>
+        </tr>
+      <% } %>
+
+        }
+      } 
+
+    </table>
+  </div>
+
+
+</body>
+
+</html>
