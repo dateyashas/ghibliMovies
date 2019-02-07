@@ -38,11 +38,17 @@ app.get('/getAll', (req, res) => jsonfile.readFile(file,function(err, obj){
 //change to filter
 app.get('/getByYear/:year?', (req, res) => jsonfile.readFile(file, function(err, obj){
     if(err)console.log(err);
-console.log(req.params);
-let year = req.params.year;
-    //let allData = obj;
-    let filteredData = _.filter(obj, {release_date: year});
-    res.json(filteredData);
+    console.log(req.params);
+    let year = req.params.year;
+        //let allData = obj;
+        //let filteredData = _.filter(obj, {release_date: year});
+        let result = obj.filter((item) => {
+            let releaseDate = item.release_date;
+            if(releaseDate == year){
+                return item;
+            }
+        })
+        res.json(result);
 }))
 
 app.get('/getByTitle/:title?', (req, res) => jsonfile.readFile(file, function(err,obj){
